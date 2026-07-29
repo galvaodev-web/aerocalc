@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AeroCalc | Desempenho de Aeronaves</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div>
+        <h1>AeroCalc</h1>
+        <p>Calculadora educacional de desempenho de aeronaves</p>
+      </div>
+
+      <span class="status">● Sistema disponível</span>
+    </header>
+
+    <main class="container">
+      <section class="introducao">
+        <span class="etiqueta">PLANEJAMENTO DE VOO</span>
+
+        <h2>Autonomia e alcance</h2>
+
+        <p>
+          Informe os dados da aeronave para calcular o tempo estimado de voo,
+          alcance e combustível de reserva.
+        </p>
+      </section>
+
+      <div class="painel">
+        <section class="cartao formulario">
+          <h3>Dados da aeronave</h3>
+
+          <form id="formulario">
+            <div class="campo campo-completo">
+              <label for="aeronave">Nome da aeronave</label>
+
+              <input
+                type="text"
+                id="aeronave"
+                placeholder="Ex.: Cessna 172"
+                value="Cessna 172"
+              />
+            </div>
+
+            <div class="grade-campos">
+              <div class="campo">
+                <label for="combustivel">Combustível disponível</label>
+
+                <div class="entrada-unidade">
+                  <input
+                    type="number"
+                    id="combustivel"
+                    min="0"
+                    step="0.1"
+                    value="150"
+                    required
+                  />
+                  <span>litros</span>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="consumo">Consumo por hora</label>
+
+                <div class="entrada-unidade">
+                  <input
+                    type="number"
+                    id="consumo"
+                    min="0.1"
+                    step="0.1"
+                    value="32"
+                    required
+                  />
+                  <span>L/h</span>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="velocidade">Velocidade de cruzeiro</label>
+
+                <div class="entrada-unidade">
+                  <input
+                    type="number"
+                    id="velocidade"
+                    min="0"
+                    step="1"
+                    value="120"
+                    required
+                  />
+                  <span>kt</span>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="reserva">Reserva de segurança</label>
+
+                <div class="entrada-unidade">
+                  <input
+                    type="number"
+                    id="reserva"
+                    min="0"
+                    step="1"
+                    value="45"
+                    required
+                  />
+                  <span>min</span>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit">Calcular desempenho</button>
+
+            <button type="button" id="limpar" class="botao-secundario">
+              Limpar dados
+            </button>
+
+            <p id="mensagemErro" class="erro"></p>
+          </form>
+        </section>
+
+        <section class="cartao resultados">
+          <div class="titulo-resultado">
+            <div>
+              <span>RESULTADO ESTIMADO</span>
+              <h3 id="nomeAeronave">Cessna 172</h3>
+            </div>
+
+            <div class="icone-aviao">✈</div>
+          </div>
+
+          <div class="grade-resultados">
+            <article class="resultado">
+              <span>Autonomia total</span>
+              <strong id="autonomiaTotal">--</strong>
+              <small>Sem descontar a reserva</small>
+            </article>
+
+            <article class="resultado destaque">
+              <span>Autonomia útil</span>
+              <strong id="autonomiaUtil">--</strong>
+              <small>Com reserva descontada</small>
+            </article>
+
+            <article class="resultado">
+              <span>Alcance estimado</span>
+              <strong id="alcance">--</strong>
+              <small>Milhas náuticas</small>
+            </article>
+
+            <article class="resultado">
+              <span>Combustível de reserva</span>
+              <strong id="combustivelReserva">--</strong>
+              <small>Quantidade preservada</small>
+            </article>
+          </div>
+
+          <div id="alerta" class="alerta neutro">
+            Preencha os campos e clique em “Calcular desempenho”.
+          </div>
+
+          <div class="observacao">
+            <strong>Aviso:</strong> ferramenta destinada exclusivamente ao
+            estudo. Não utilize estes resultados para planejamento ou operação
+            de voos reais.
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>AeroCalc — Projeto educacional de computação e aeronáutica</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
